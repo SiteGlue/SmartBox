@@ -198,7 +198,7 @@ const userProvidesLeadSource = async (req) => {
 
     transcript.push({
         user: queryText,
-        SmartBox_Agent: 'Sounds good. Can I help with anything else?',
+        SmartBox_Agent: 'Thank you. I will have our patient coordinator contact you ASAP to schedule your appointment.::next-2000:: Can I help with anything else?',
         date: tDate.toLocaleString('en', { timeZone: 'Asia/Kolkata' })
     });
 
