@@ -245,7 +245,7 @@ const userProvidesLeadSource = async (req) => {
     }
 
     return {
-        fulfillmentText: 'Sounds good. Can I help with anything else?'
+        fulfillmentText: 'Thank you. I will have our patient coordinator contact you ASAP to schedule your appointment.::next-2000:: Can I help with anything else?'
     };
 };
 
@@ -272,7 +272,7 @@ const userProvidesLastnameNumberPC = async (req) => {
 
     transcript.push({
         user: queryText,
-        SmartBox_Agent: 'Sounds good. Can I help with anything else?',
+        SmartBox_Agent: 'Thanks! I will have our patient coordinator contact your ASAP.::next-2000:: Can I help with anything else?',
         date: tDate.toLocaleString('en', { timeZone: 'Asia/Kolkata' })
     });
 
@@ -312,7 +312,7 @@ const userProvidesLastnameNumberPC = async (req) => {
     }
 
     return {
-        fulfillmentText: 'Sounds good. Can I help with anything else?'
+        fulfillmentText: 'Thanks! I will have our patient coordinator contact your ASAP.::next-2000:: Can I help with anything else?'
     };
 };
 
@@ -337,7 +337,7 @@ const userProvideFirstnamePC = (req) => {
     let outString = '';
 
     if (first_name === undefined) {
-        outString += `Great! I just need your contact information and have our patient coordinator call you. Before we start please tell me your name.`;
+        outString += `Great! I just need your contact information and have our patient coordinator call you.::next-1000::To get started, please let me know your first name.`;
         return utteranceTranscript({
             fulfillmentText: outString,
             queryText: queryText,
@@ -345,7 +345,7 @@ const userProvideFirstnamePC = (req) => {
             transcript: transcript
         }, false);
     } else {
-        outString += `May I please have your last name and phone number for correspondence?`;
+        outString += `May I please have your last name and best phone number to contact you?`;
         let awaitLP = `${session}/contexts/await-pc-lastname-number`;
         let oc = [{
             name: awaitLP,
